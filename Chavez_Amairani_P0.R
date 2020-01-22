@@ -29,21 +29,39 @@ G <- 0
 T <- 0
 sec1.1 <- as.character(sec1)
 sec1.1
-for (i in sec1.1){
-  if (i == "A"){
+for (i in length(sec1)){
+  if (sec1[i] == "A"){
     A+1
-  } else if (i == "C"){
+  } else if (sec1[i] == "C"){
     C+1
-  } else if (i == "G"){
+  } else if (sec1[i] == "G"){
     G+1
-  } else if (i == "T"){
+  } else if (sec1[i] == "T"){
     T+1
   }
 }
-print(A)
+print(A)                     #NO DA RESULTADO
 print(C)
 print(G)
 print(T)
+
+###De manera diferente
+library(stringr)
+A<- "A"
+ca <- as.character(sec1)
+ext <- str_extract_all(ca, A, simplify = TRUE)
+ext
+length(ext)
+C <- "C"
+extC <- str_extract_all(ca, C, simplify = TRUE)
+length(extC)
+G <- "G"
+extG <- str_extract_all(ca, G, simplify = TRUE)
+length(extG)
+T <- "T"
+extT <- str_extract_all(ca, T, simplify = TRUE)
+length(extT)
+
 #segundo problema a resolver: Complementing a Strand of DNA
 #con libreria
 #utilizo la misma secuencia del problema anterior
